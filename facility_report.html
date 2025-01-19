@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Usage Report - KasitNet</title>
+    <link rel="icon" type="image/x-icon" href="logo11.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+    <script src="scripts.js" defer></script>
+</head>
+<body style="font-family: 'Roboto', sans-serif;">
+    <header>
+    <div style="display: flex; align-items: center;">
+        <img src="logo1.png" alt="KasitNet Logo" style="height: 70px; margin-right: -10px; vertical-align: middle;">
+        <h1>KasitNet</h1>
+        <link rel="icon" type="image/x-icon" href="logo11.ico">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="bookings.html">Bookings</a></li>
+                <li><a href="calendar.php">Calendar</a></li>
+                <li><a href="facility_report.html" class="active">Usage Report</a></li>
+            </ul>
+        </nav>
+        <button class="btn-small" onclick="logoutUser()">Logout</button>
+    </header>
+
+    <main>
+        <section id="report-filters">
+            <h2>Facility Usage Report</h2>
+            <div class="form-group">
+                <label for="report-start-date">Start Date:</label>
+                <input type="date" id="report-start-date">
+            </div>
+            <div class="form-group">
+                <label for="report-end-date">End Date:</label>
+                <input type="date" id="report-end-date">
+            </div>
+            <div class="form-group">
+                <label for="report-facility-type">Facility Type:</label>
+                <select id="report-facility-type">
+                    <option value="all">All</option>
+                    <option value="Classroom">Classroom</option>
+                    <option value="Lab">Lab</option>
+                    <option value="Meeting Room">Meeting Room</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="report-specific-room">Specific Room:</label>
+                <input type="text" id="report-specific-room" placeholder="Enter room name (optional)">
+            </div>
+            <button class="btn-primary" onclick="generateReport()">Generate Report</button>
+        </section>
+
+        <section id="report-table">
+            <h3>Detailed Usage Statistics</h3>
+            <table border="1" cellpadding="10" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Facility Name</th>
+                        <th>Booking Frequency</th>
+                        <th>Peak Usage Time</th>
+                        <th>Total Hours Booked</th>
+                    </tr>
+                </thead>
+                <tbody id="report-table-body">
+                </tbody>
+            </table>
+        </section>
+
+        <section id="report-export">
+            <button class="btn-primary" onclick="exportReport('pdf')">Export to PDF</button>
+            <button class="btn-primary" onclick="exportReport('excel')">Export to Excel</button>
+        </section>
+
+        <section id="report-charts">
+            <h3>Facility Usage Overview</h3>
+            <div id="charts-container">
+                <canvas id="usageBarChart"></canvas>
+                <canvas id="usagePieChart"></canvas>
+            </div>
+        </section>
+        
+        <section id="predictive-analysis">
+            <h3>Predictive Analysis</h3>
+            <p>This section provides predictive insights on future facility usage based on historical data.</p>
+            <button class="btn-primary" onclick="runPredictiveAnalysis()">Run Predictive Analysis</button>
+            <div id="predictive-results">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 KasitNet</p>
+    </footer>
+</body>
+</html>

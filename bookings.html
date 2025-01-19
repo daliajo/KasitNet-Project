@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings - KasitNet</title>
+    <link rel="icon" type="image/x-icon" href="logo11.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+    <div style="display: flex; align-items: center;">
+        <img src="logo1.png" alt="KasitNet Logo" style="height: 70px; margin-right: -10px; vertical-align: middle;">
+        <h1>KasitNet</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="bookings.html" class="active">Bookings</a></li>
+                <li><a href="calendar.php">Calendar</a></li>
+                <li><a href="facility_report.html">Usage Report</a></li>
+            </ul>
+        </nav>
+        <button class="btn-small" onclick="logoutUser()">Logout</button>
+    </header>
+
+    <main>
+        <section id="facilities">
+            <h2>Book A Facility</h2>
+            <form id="bookingForm" method="POST" action="book_facility.php">
+                <div class="form-group">
+                    <label for="facility-type">Select Facility Type:</label>
+                    <select id="facility-type" onchange="filterFacilitiesByType()" required>
+                        <option value="all">All</option>
+                        <option value="Classroom">Classroom</option>
+                        <option value="Lab">Lab</option>
+                        <option value="Meeting Room">Meeting Room</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="facility_id">Select Facility:</label>
+                    <select id="facility_id" name="facility_id" required>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="booking-date">Select Date:</label>
+                    <input type="date" id="booking-date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-time">Select Time:</label>
+                    <input type="time" id="booking-time" name="time" required>
+                </div>
+		<div class="form-group">
+        	<label for="description">Description:</label>
+        	<input type="text" id="description" name="description" placeholder="Enter a description (optional)">
+    </div>
+                <button type="submit" class="btn-primary">Book Now</button>
+            </form>
+        </section>
+<br><br><br><br>
+        <section id="facilities">
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Classroom 001">
+                    <h3>Classroom 001</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 001')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 101">
+                    <h3>Classroom 101</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 101')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 102">
+                    <h3>Classroom 102</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 102')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 103">
+                    <h3>Classroom 103</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 103')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Classroom 105">
+                    <h3>Classroom 105</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 105')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 201">
+                    <h3>Classroom 201</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 201')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 202">
+                    <h3>Classroom 202</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 202')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 203">
+                    <h3>Classroom 203</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 203')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Classroom 205">
+                    <h3>Classroom 205</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 205')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 301">
+                    <h3>Classroom 301</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 301')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 302">
+                    <h3>Classroom 302</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 302')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Classroom 303">
+                    <h3>Classroom 303</h3>
+                    <p>Capacity: 30</p>
+                    <button class="btn-primary" onclick="bookFacility('Classroom 303')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Lab 001">
+                    <h3>Lab 001</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 001')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 002">
+                    <h3>Lab 002</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 002')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 101">
+                    <h3>Lab 101</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 101')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 102">
+                    <h3>Lab 102</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 102')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Lab 103">
+                    <h3>Lab 103</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 103')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 104">
+                    <h3>Lab 104</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 104')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="CISCO Lab 107">
+                    <h3>CISCO Lab 107</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('CISCO Lab 107')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="SAMSUNG Lab 106">
+                    <h3>SAMSUNG Lab 106</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('SAMSUNG Lab 106')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Creative Programming Lab 105">
+                    <h3>Creative Programming Lab 105</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Creative Programming Lab 105')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 201">
+                    <h3>Lab 201</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 201')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 202">
+                    <h3>Lab 202</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 202')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 203">
+                    <h3>Lab 203</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 203')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Lab 204">
+                    <h3>Lab 204</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 204')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 205">
+                    <h3>Lab 205</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 205')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 206">
+                    <h3>Lab 206</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 206')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 207">
+                    <h3>Lab 207</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 207')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Lab 301">
+                    <h3>Lab 301</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 301')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 302">
+                    <h3>Lab 302</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 302')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 303">
+                    <h3>Lab 303</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 303')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="Lab 304">
+                    <h3>Lab 304</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 304')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="Lab 305">
+                    <h3>Lab 305</h3>
+                    <p>Capacity: 25</p>
+                    <button class="btn-primary" onclick="bookFacility('Lab 305')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="StudyRoom A">
+                    <h3>StudyRoom A</h3>
+                    <p>Capacity: 10</p>
+                    <button class="btn-primary" onclick="bookFacility('StudyRoom A')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="StudyRoom B">
+                    <h3>StudyRoom B</h3>
+                    <p>Capacity: 10</p>
+                    <button class="btn-primary" onclick="bookFacility('StudyRoom B')">Book Now</button>
+                </div>
+                <div class="facility-item" data-name="StudyRoom C">
+                    <h3>StudyRoom C</h3>
+                    <p>Capacity: 10</p>
+                    <button class="btn-primary" onclick="bookFacility('StudyRoom C')">Book Now</button>
+                </div>
+                </div>
+<br><br>
+<div class="content-wrapper2">
+                <div class="facility-item" data-name="StudyRoom D">
+                    <h3>StudyRoom D</h3>
+                    <p>Capacity: 10</p>
+                    <button class="btn-primary" onclick="bookFacility('StudyRoom D')">Book Now</button>
+                </div>
+              </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 KasitNet</p>
+    </footer>
+</body>
+</html>
